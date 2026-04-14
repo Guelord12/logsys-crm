@@ -1,0 +1,17 @@
+Ce projet est sous licence propriétaire.
+
+From G-tech - © 2024 Tous droits réservés
+
+
+Ce système complet inclut :
+
+1. **Backend complet** avec tous les contrôleurs, modèles, middleware et services
+2. **Frontend React complet** avec toutes les pages et composants
+3. **Interface conforme** à l'image fournie (logo LogSys, couleur bleue, footer "From G-tech")
+4. **Modules fonctionnels** : Messagerie, Réunions, Logistique, Comptabilité OHADA
+5. **Gestion des abonnements** avec les 3 plans (Basic, Pro, Enterprise)
+6. **Administration système et entreprise**
+7. **Notifications temps réel**
+8. **Docker pour déploiement facile**
+
+Le système est prêt à être déployé et utilisé en production.

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+    .header { text-align: center; padding: 20px 0; background: linear-gradient(135deg, #4A90E2, #2E5FA1); color: white; border-radius: 10px 10px 0 0; }
+    .content { padding: 30px; background: #f9f9f9; }
+    .footer { text-align: center; padding: 20px; color: #666; font-size: 12px; }
+    .button { display: inline-block; padding: 12px 24px; background: #4A90E2; color: white; text-decoration: none; border-radius: 5px; margin: 20px 0; }
+    .credentials { background: #fff; padding: 15px; border-radius: 5px; margin: 20px 0; border: 1px solid #ddd; }
+    .info-box { background: #e8f4fd; padding: 15px; border-radius: 5px; margin: 20px 0; border-left: 4px solid #4A90E2; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Bienvenue - Administrateur LogSys</h1>
+    </div>
+    <div class="content">
+      <p>Bonjour {{fullName}},</p>
+      <p>Félicitations ! Vous avez été désigné comme administrateur de l'entreprise <strong>{{companyName}}</strong> sur LogSys CRM.</p>
+      <div class="info-box">
+        <p><strong>En tant qu'administrateur, vous pouvez :</strong></p>
+        <ul>
+          <li>Gérer les utilisateurs de votre entreprise</li>
+          <li>Attribuer des rôles et permissions</li>
+          <li>Configurer les paramètres de l'entreprise</li>
+          <li>Accéder aux rapports et statistiques</li>
+        </ul>
+      </div>
+      <p>Voici vos identifiants de connexion :</p>
+      <div class="credentials">
+        <p><strong>Email :</strong> {{email}}</p>
+        <p><strong>Mot de passe temporaire :</strong> {{temporaryPassword}}</p>
+      </div>
+      <p><strong>Important :</strong> Vous devrez changer votre mot de passe lors de votre première connexion.</p>
+      <p style="text-align: center;">
+        <a href="{{loginUrl}}" class="button">Accéder à mon espace</a>
+      </p>
+      <p>Pour toute assistance, notre équipe support est à votre disposition.</p>
+    </div>
+    <div class="footer">
+      <p>© {{year}} LogSys CRM - Tous droits réservés</p>
+      <p>From G-tech</p>
+    </div>
+  </div>
+</body>
+</html>

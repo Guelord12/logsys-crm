@@ -1,0 +1,17 @@
+FROM node:18-alpine
+
+WORKDIR /app
+
+RUN apk add --no-cache tzdata curl
+
+ENV TZ=UTC
+
+COPY package*.json yarn.lock ./
+
+RUN yarn install --frozen-lockfile
+
+COPY . .
+
+EXPOSE 5000
+
+CMD ["yarn", "dev"]

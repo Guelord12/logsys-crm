@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+    .header { text-align: center; padding: 20px 0; background: linear-gradient(135deg, #4A90E2, #2E5FA1); color: white; border-radius: 10px 10px 0 0; }
+    .content { padding: 30px; background: #f9f9f9; }
+    .footer { text-align: center; padding: 20px; color: #666; font-size: 12px; }
+    .company-details { background: #fff; padding: 15px; border-radius: 5px; margin: 20px 0; border: 1px solid #ddd; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Confirmation de création d'entreprise</h1>
+    </div>
+    <div class="content">
+      <p>Bonjour {{executiveName}},</p>
+      <p>Nous vous confirmons la création de votre entreprise <strong>{{companyName}}</strong> sur LogSys CRM.</p>
+      <div class="company-details">
+        <p><strong>Informations de l'entreprise :</strong></p>
+        <p>Nom : {{companyName}}</p>
+        <p>Plan d'abonnement : {{planName}}</p>
+      </div>
+      <p><strong>Administrateur désigné :</strong></p>
+      <p>{{adminName}} - {{adminEmail}}</p>
+      <p>L'administrateur a reçu ses identifiants de connexion et pourra créer les comptes des autres utilisateurs.</p>
+      <p>Pour toute question, notre équipe support reste à votre disposition.</p>
+    </div>
+    <div class="footer">
+      <p>© {{year}} LogSys CRM - Tous droits réservés</p>
+      <p>From G-tech</p>
+    </div>
+  </div>
+</body>
+</html>

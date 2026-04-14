@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+    .header { text-align: center; padding: 20px 0; background: linear-gradient(135deg, #f39c12, #e67e22); color: white; border-radius: 10px 10px 0 0; }
+    .content { padding: 30px; background: #f9f9f9; }
+    .footer { text-align: center; padding: 20px; color: #666; font-size: 12px; }
+    .button { display: inline-block; padding: 12px 24px; background: #4A90E2; color: white; text-decoration: none; border-radius: 5px; margin: 20px 0; }
+    .warning { background: #fff3cd; padding: 15px; border-radius: 5px; margin: 20px 0; border-left: 4px solid #ffc107; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Votre abonnement expire bientôt</h1>
+    </div>
+    <div class="content">
+      <p>Bonjour {{fullName}},</p>
+      <p>Nous vous informons que votre abonnement <strong>{{planName}}</strong> pour l'entreprise <strong>{{companyName}}</strong> arrivera à expiration dans <strong>{{daysRemaining}} jours</strong>.</p>
+      <div class="warning">
+        <p><strong>Date d'expiration :</strong> {{expiryDate}}</p>
+        <p><strong>Montant à régler :</strong> {{amount}} {{currency}}</p>
+      </div>
+      <p>Pour éviter toute interruption de service, veuillez procéder au renouvellement de votre abonnement.</p>
+      <p style="text-align: center;">
+        <a href="{{renewalUrl}}" class="button">Renouveler maintenant</a>
+      </p>
+      <p>Si vous avez des questions, n'hésitez pas à contacter notre service commercial.</p>
+    </div>
+    <div class="footer">
+      <p>© {{year}} LogSys CRM - Tous droits réservés</p>
+      <p>From G-tech</p>
+    </div>
+  </div>
+</body>
+</html>

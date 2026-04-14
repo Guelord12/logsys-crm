@@ -1,0 +1,83 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: logsys-postgres-dev
+    environment:
+      POSTGRES_DB: logsys_db
+      POSTGRES_USER: logsys_user
+      POSTGRES_PASSWORD: logsys_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data_dev:/var/lib/postgresql/data
+      - ./backend/src/database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+    networks:
+      - logsys-network-dev
+
+  redis:
+    image: redis:7-alpine
+    container_name: logsys-redis-dev
+    command: redis-server --appendonly yes
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data_dev:/data
+    networks:
+      - logsys-network-dev
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    container_name: logsys-backend-dev
+    environment:
+      NODE_ENV: development
+      PORT: 5000
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: logsys_db
+      DB_USER: logsys_user
+      DB_PASSWORD: logsys_password
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      JWT_SECRET: dev-secret-key
+      FRONTEND_URL: http://localhost:3000
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - logsys-network-dev
+    command: yarn dev
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    container_name: logsys-frontend-dev
+    environment:
+      VITE_API_URL: http://localhost:5000/api/v1
+      VITE_SOCKET_URL: http://localhost:5000
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - logsys-network-dev
+
+volumes:
+  postgres_data_dev:
+  redis_data_dev:
+
+networks:
+  logsys-network-dev:
+    driver: bridge
